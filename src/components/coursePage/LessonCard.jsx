@@ -5,7 +5,7 @@ import {
   convertTimestampToTime,
 } from "../../utils/utils";
 import UseFetch from "../../hooks/useFetch";
-import SelectVideo from "./selectVideo";
+import SelectVideo from "./SelectVideo";
 import ConfirmationModal from "../mainPage/confrim";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 import { FaImage } from "react-icons/fa";
