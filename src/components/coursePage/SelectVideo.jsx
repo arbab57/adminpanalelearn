@@ -6,7 +6,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import AddVideo from "../../components/Videos/AddVideo";
 import Pagination from "../mainPage/pagination";
 
-const selectVideo = ({ setVideoId, setShowVideos, handleChange }) => {
+const SelectVideo = ({ setVideoId, setShowVideos, handleChange }) => {
   const baseURL = import.meta.env.VITE_baseURL;
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(8);
@@ -90,4 +90,4 @@ const selectVideo = ({ setVideoId, setShowVideos, handleChange }) => {
   );
 };
 
-export default selectVideo;
+export default SelectVideo;
