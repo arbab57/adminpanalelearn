@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UseFetch from "../hooks/useFetch";
 import Search from "../components/mainPage/search";
 import Pagination from "../components/mainPage/pagination";
-import Review from "../components/reviews/review";
+import Review from "../components/reviews/Review";
 import ClockLoader from "../components/general/ClockLoader";
 
 const MentReviews = () => {
