@@ -4,7 +4,6 @@ import patchData from "../../hooks/patchData";
 const EditVideo = ({
   setShowUpd,
   video,
-  reFetch,
   setShowToast,
   setToastMessage,
 }) => {
@@ -49,7 +48,6 @@ const EditVideo = ({
     setShowUpd(false);
     setToastMessage("Video Updated");
     setShowToast(true);
-    reFetch();
   };
 
   return (

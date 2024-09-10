@@ -25,8 +25,8 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/admin" element={<MainLayout />}>
-          <Route path='users' element={<UserPage />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<UserPage />} />
           <Route path='mentors' element={<MentorsPage />} />
           <Route path='add-mentor' element={<AddMentor />} />
           <Route path='mentor-reviews' element={<MentReviews />} />
@@ -40,7 +40,7 @@ function App() {
 
           <Route path='*' element={<NotFound />} />
         </Route>
-        <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
 
 
        

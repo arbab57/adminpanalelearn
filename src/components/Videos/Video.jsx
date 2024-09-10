@@ -5,7 +5,7 @@ import { FaImage, FaPlus } from "react-icons/fa";
 import EditVideo from "./EditVideo";
 import Toast from "../general/toast";
 
-const Video = ({ video, reFetch, onClick = null }) => {
+const Video = ({ video, onClick = null }) => {
   const [showConfirm, setshowConfirm] = useState(false);
   const [showUpd, setShowUpd] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -21,7 +21,6 @@ const Video = ({ video, reFetch, onClick = null }) => {
       },
       credentials: "include"
     });
-    reFetch();
   };
   const handleClick = () => {
     onClick(video._id);
@@ -78,7 +77,6 @@ const Video = ({ video, reFetch, onClick = null }) => {
               <EditVideo
                 setShowUpd={setShowUpd}
                 video={video}
-                reFetch={reFetch}
                 setShowToast={setShowToast}
                 setToastMessage={setToastMessage}
               />

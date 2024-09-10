@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import patchData from "../../hooks/patchData";
 
-const AddVideo = ({ setShowAdd, reFetch }) => {
+const AddVideo = ({ setShowAdd }) => {
   const [videoLink, setVideoLink] = useState("");
   const [error, setError] = useState("")
   const titleRef = useRef(null);
@@ -40,7 +40,6 @@ const AddVideo = ({ setShowAdd, reFetch }) => {
       );
       const resJson = await response.json()
       setShowAdd(false)
-      reFetch()
       
   };
 

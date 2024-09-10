@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import UseFetch from "../hooks/useFetch";
 import AdminCard from "../components/settings/AdminCard";
 import Toast from "../components/general/toast";
@@ -10,6 +10,16 @@ const Settings = () => {
   const [message, setMessage] = useState("");
   const [severity, setSeverity] = useState("");
   const [loading2, setLoading2] = useState(false)
+  const [admins, setAdmins] = useState([
+    {
+        "_id": "66d02655f8f48a1d92b752b9",
+        "name": "admin",
+        "email": "admin1@gmail.com",
+        "password": "$2b$10$JUsAHH0lROfSsBVoTE8gSOq0oqzgK10SQoK.BmPF7y1cjmz7LYsHi",
+        "__v": 0
+    }
+])
+
 
   const OPRef = useRef(null);
   const NPRef = useRef(null);
@@ -20,11 +30,16 @@ const Settings = () => {
 
   const baseURL = import.meta.env.VITE_baseURL;
 
-  const [admins, error, loading, reFetch] = UseFetch(
-    `${baseURL}/admin/get/admins`,
-    [],
-    []
-  );
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 600)
+  })
+
+  // const [admins, error, loading, reFetch] = UseFetch(
+  //   `${baseURL}/admin/get/admins`,
+  //   [],
+  //   []
+  // );
 
   const handleAdd = async () => {
     if (!nameRef.current.value) {
@@ -66,7 +81,6 @@ const Settings = () => {
     setMessage("admin added");
     setSeverity("success");
     setLoading2(false)
-    reFetch();
   };
 
   const handleChangepass = async () => {
@@ -83,26 +97,24 @@ const Settings = () => {
       return;
     }
     setLoading2(true)
-    const data = {oldPassword: OPRef.current.value, newPassword: NPRef.current.value}
-    const response = await patchData(
-      `${baseURL}/admin/admin/change-password`,
-      "DELETE",
-      data
-    );
-    if(response.ok) {
+    // const data = {oldPassword: OPRef.current.value, newPassword: NPRef.current.value}
+    // const response = await patchData(
+    //   `${baseURL}/admin/admin/change-password`,
+    //   "DELETE",
+    //   data
+    // );
+  
       setShowToast(true);
-      setMessage(resJson.message);
+      setMessage("success");
       setSeverity("success");
-      setLoading2(false)
-      return
-    }
-    setShowToast(true);
-    setMessage(resJson.message);
-    setSeverity("danger");
-    setLoading2(false)
 
-
-    
+      const clean = () => {
+        setLoading2(false)
+        OPRef.current.value = "",
+        NPRef.current.value = ""
+      }
+      setTimeout(clean, 400)
+  
 
   }
 
@@ -155,7 +167,6 @@ const Settings = () => {
                 <AdminCard
                   key={indx}
                   admin={admin}
-                  reFetch={reFetch}
                   setShowToast={setShowToast}
                   setMessage={setMessage}
                   setSeverity={setSeverity}

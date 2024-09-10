@@ -10,7 +10,7 @@ import UseFetch from "../../hooks/useFetch";
 import ReviewsComp2 from "../reviews/ReviewsComp2";
 
 
-const mentorCard = ({ mentor, reFetch }) => {
+const mentorCard = ({ mentor, }) => {
   const [showConfirm, setshowConfirm] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -30,7 +30,6 @@ const mentorCard = ({ mentor, reFetch }) => {
         credentials: "include"
       }
     );
-    reFetch();
   };
 
   const fetchUrl = `${baseURL}/admin/mentors/${mentor._id}/reviews`;
@@ -114,11 +113,10 @@ const mentorCard = ({ mentor, reFetch }) => {
             setShowToast={setShowToast}
             mentor={mentor}
             setShowUpdate={setShowUpdate}
-            reFetch={reFetch}
           />
         )}
       </div>
-      {showReview && <ReviewsComp2 mentorId={mentor._id} reviews={reviews2}  reFetch2={reFetch2}/>}
+      {showReview && <ReviewsComp2 mentorId={mentor._id} reviews={mentor.reviews}  reFetch2={reFetch2}/>}
     </div>
   );
 };

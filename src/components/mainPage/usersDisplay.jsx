@@ -4,7 +4,7 @@ import ConfirmationModal from "./confrim";
 import { useState } from "react";
 import ClockLoader from "../general/ClockLoader";
 
-const usersDisplay = ({ user, reFetch }) => {
+const usersDisplay = ({ user, }) => {
 const [showConfirm, setshowConfirm] = useState(false)
 const [loading, setLoading] = useState(false)
 
@@ -18,7 +18,6 @@ const [loading, setLoading] = useState(false)
       },
       credentials: "include"
     });
-    reFetch()
     setLoading(false)
 
 

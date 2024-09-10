@@ -38,13 +38,14 @@ const Review = ({ review, handleDelete }) => {
         className="absolute top-2 right-2 px-2 text-red-500 hover:text-red-700"
       >
         <MdDelete className="text-xl" />
-        {showConfirm && (
+     
+      </button>
+      {showConfirm && (
           <ConfirmationModal
             goBack={() => setshowConfirm((prev) => !prev)}
             handleDelete={() => handleDelete(review)}
           />
         )}
-      </button>
     </div>
   );
 };

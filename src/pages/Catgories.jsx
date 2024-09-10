@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import UseFetch from "../hooks/useFetch";
 import CategoryCard from "../components/categories/CategoryCard";
 import patchData from "../hooks/patchData";
@@ -9,11 +9,54 @@ const Catgories = () => {
   const categoryRef = useRef(null);
   const [errorMsg, setErrorMsg] = useState("");
   const baseURL = import.meta.env.VITE_baseURL;
-  const [data, error, loading, reFetch] = UseFetch(
-    `${baseURL}/admin/categories/get`,
-    [],
-    []
-  );
+  const [data, setData] = useState([
+    {
+        "_id": "66dfc952436086f433fbf3a4",
+        "name": "Web Development",
+        "__v": 0
+    },
+    {
+        "_id": "66dfc952436086f433fbf3a5",
+        "name": "UI/Ux Design",
+        "__v": 0
+    },
+    {
+        "_id": "66dfc952436086f433fbf3a6",
+        "name": "Data Science",
+        "__v": 0
+    },
+    {
+        "_id": "66dfc952436086f433fbf3a7",
+        "name": "DevOps",
+        "__v": 0
+    },
+    {
+        "_id": "66dfc952436086f433fbf3a8",
+        "name": "Graphic Design",
+        "__v": 0
+    },
+    {
+        "_id": "66dfc952436086f433fbf3a9",
+        "name": "Backend Development",
+        "__v": 0
+    },
+    {
+        "_id": "66dfc952436086f433fbf3aa",
+        "name": "Cyber Security",
+        "__v": 0
+    }
+])
+
+const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 600)
+  })
+  // const [data, error, loading, reFetch] = UseFetch(
+  //   `${baseURL}/admin/categories/get`,
+  //   [],
+  //   []
+  // );
 
   const removeError = () => {
     setTimeout(() => {
@@ -30,7 +73,6 @@ const Catgories = () => {
     const newCategory = { name: categoryRef.current.value };
     const response = await patchData(`${baseURL}/admin/categories/add`, "POST", newCategory);
     categoryRef.current.value = ""
-    reFetch();
   };
 
   return (
@@ -68,7 +110,7 @@ const Catgories = () => {
         <div className="flex flex-col gap-2 py-4">
           {data.map((category, index) => {
             return (
-              <CategoryCard key={index} category={category} reFetch={reFetch} />
+              <CategoryCard key={index} category={category} />
             );
           })}
         </div>

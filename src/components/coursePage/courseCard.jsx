@@ -10,7 +10,7 @@ import ReviewsComp from "../reviews/ReviewsComp";
 import UseFetch from "../../hooks/useFetch";
 
 
-const courseCard = ({ course, reFetch }) => {
+const courseCard = ({ course, }) => {
   const [showToast, setShowToast] = useState(false);
   const [showReview, setShowReviews] = useState(false);
   const baseURL = import.meta.env.VITE_baseURL;
@@ -32,7 +32,7 @@ const courseCard = ({ course, reFetch }) => {
         "Content-type": "application/json",
       },
     });
-    reFetch();
+
   };
 
   const fetchUrl = `${baseURL}/admin/courses/${course.id}/reviews`;
@@ -157,7 +157,6 @@ const courseCard = ({ course, reFetch }) => {
 
             {showUpdate && (
               <UpdateCourse
-                reFetch={reFetch}
                 setShowToast={setShowToast}
                 setShowUpdate={setShowUpdate}
                 course={course}
@@ -166,7 +165,7 @@ const courseCard = ({ course, reFetch }) => {
           </div>
         </div>
       </div>
-      {showReview && <ReviewsComp courseId={course.id} reviews={reviews2}  reFetch2={reFetch2}/>}
+      {showReview && <ReviewsComp courseId={course.id} reviews={course.data.reviews}  reFetch2={reFetch2} onClose={setShowReviews}/>}
     </div>
   );
 };

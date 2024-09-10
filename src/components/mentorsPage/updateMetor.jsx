@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import patchData from "../../hooks/patchData";
 import AddSocial from "./addSocial";
 
-const updateMetor = ({ mentor, setShowUpdate, reFetch, setShowToast }) => {
+const updateMetor = ({ mentor, setShowUpdate, setShowToast }) => {
   const socails = mentor.socialMedia.map((media, ind) => {
     media.id = `${media.platform}-${ind}`
     return media
@@ -35,7 +35,6 @@ const updateMetor = ({ mentor, setShowUpdate, reFetch, setShowToast }) => {
       setShowToast(true)
     }
     setShowUpdate(false);
-    reFetch();
   };
 
   const handleClose = (e) => {

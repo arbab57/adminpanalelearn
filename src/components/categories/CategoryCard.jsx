@@ -18,7 +18,6 @@ const CategoryCard = ({ category, reFetch }) => {
         credentials: "include"
       }
     );
-    reFetch()
   };
   return (
     <div className="p-4 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex justify-between items-center">

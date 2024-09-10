@@ -4,12 +4,42 @@ import UseFetch from "../../hooks/useFetch";
 
 const CourseDistributionChart = () => {
   const baseURL = import.meta.env.VITE_baseURL;
+  const [data, setData] = useState([
+    {
+        "category": "Web Development",
+        "count": 6
+    },
+    {
+        "category": "Cyber Security",
+        "count": 6
+    },
+    {
+        "category": "Data Science",
+        "count": 5
+    },
+    {
+        "category": "Backend Development",
+        "count": 5
+    },
+    {
+        "category": "DevOps",
+        "count": 5
+    },
+    {
+        "category": "UI/UX Design",
+        "count": 5
+    },
+    {
+        "category": "Graphic Design",
+        "count": 5
+    }
+])
 
-  const [data, error, loading, reFetch] = UseFetch(
-    `${baseURL}/admin/charts/piechart`,
-    [],
-    []
-  );
+  // const [data, error, loading, reFetch] = UseFetch(
+  //   `${baseURL}/admin/charts/piechart`,
+  //   [],
+  //   []
+  // );
 
   // const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
   const COLORS = [

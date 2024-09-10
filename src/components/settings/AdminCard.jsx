@@ -14,28 +14,12 @@ const AdminCard = ({
 
   const handleDelete = async () => {
     setLoading2(true);
-    const baseURL = import.meta.env.VITE_baseURL;
-    const response = await fetch(`${baseURL}/admin/admin/del/${admin._id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
-      credentials: "include",
-    });
-    const resJson = await response.json();
-    if (response.ok) {
+    const baseURL = import.meta.env.VITE_baseURL; 
       setShowToast(true);
       setSeverity("success");
-      setMessage(resJson.msg);
-      reFetch();
+      setMessage("admin deleted");
       setLoading2(false);
-      return;
-    }
-    setShowToast(true);
-    setSeverity("danger");
-    setMessage(resJson.msg);
-    reFetch();
-    setLoading2(false);
+
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import Review from "../reviews/Review";
 
-const ReviewsComp = ({courseId, reviews, reFetch2 }) => {
+const ReviewsComp = ({courseId, reviews, reFetch2, onClose }) => {
     
   const handleDelete = async (review) => {
     const baseURL = import.meta.env.VITE_baseURL;
@@ -16,6 +16,7 @@ const ReviewsComp = ({courseId, reviews, reFetch2 }) => {
       }
     );
     reFetch2();
+  
 
   };
   return (

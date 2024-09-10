@@ -27,38 +27,38 @@ const mobileNav = ({onclose}) => {
             <FaUser /> Users
           </NavLink>
         <p className="text-gray-500 text-lg my-3">Courses</p>
-          <NavLink to={"/admin/courses"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/courses"} className={linkClass} onClick={() => onclose()}>
             <SiCoursera /> Courses
           </NavLink>
-          <NavLink to={"/admin/add-courses"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/add-courses"} className={linkClass} onClick={() => onclose()}>
           <FaPlus /> Add Courses
           </NavLink>
-          <NavLink to={"/admin/videos"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/videos"} className={linkClass} onClick={() => onclose()}>
           <MdOutlineVideoSettings /> Videos
           </NavLink>
-          <NavLink to={"/admin/categories"} className={linkClass} onClick={() => onclose()}> 
+          <NavLink to={"/categories"} className={linkClass} onClick={() => onclose()}> 
           <BiCategory /> Categories
           </NavLink>
-          <NavLink to={"/admin/course-reviews"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/course-reviews"} className={linkClass} onClick={() => onclose()}>
           <GoCodeReview /> Reviews
           </NavLink>
         <p className="text-gray-500 text-lg my-3">Mentors</p>
 
-          <NavLink to={"/admin/mentors"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/mentors"} className={linkClass} onClick={() => onclose()}>
            <FaChalkboardTeacher /> Mentors
           </NavLink>
-          <NavLink to={"/admin/add-mentor"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/add-mentor"} className={linkClass} onClick={() => onclose()}>
            <FaPlus /> Add Mentors
           </NavLink>
-          <NavLink to={"/admin/mentor-reviews"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/mentor-reviews"} className={linkClass} onClick={() => onclose()}>
           <GoCodeReview /> Reviews
           </NavLink>
           <p className="text-gray-500 text-lg my-3">Admin</p>
 
-          <NavLink to={"/admin/dashboard"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/dashboard"} className={linkClass} onClick={() => onclose()}>
             <MdAnalytics />  Dashboard
           </NavLink>
-          <NavLink to={"/admin/settings"} className={linkClass} onClick={() => onclose()}>
+          <NavLink to={"/settings"} className={linkClass} onClick={() => onclose()}>
           <FaGear />  Configure
           </NavLink>
         </div>

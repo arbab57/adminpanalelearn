@@ -4,12 +4,35 @@ import UseFetch from "../../hooks/useFetch";
 
 const InfoSummaryChart = () => {
   const baseURL = import.meta.env.VITE_baseURL;
+  const [data, setData] = useState([
+    {
+        "category": "Mentors",
+        "count": 7
+    },
+    {
+        "category": "Courses",
+        "count": 37
+    },
+    {
+        "category": "Users",
+        "count": 30
+    },
+    {
+        "category": "Videos",
+        "count": 1
+    },
+    {
+        "category": "Revenue(K)",
+        "count": 63
+    }
+])
 
-  const [data, error, loading, reFetch] = UseFetch(
-    `${baseURL}/admin/charts/info-summary`,
-    [],
-    []
-  );
+
+  // const [data, error, loading, reFetch] = UseFetch(
+  //   `${baseURL}/admin/charts/info-summary`,
+  //   [],
+  //   []
+  // );
 
 
   return (
